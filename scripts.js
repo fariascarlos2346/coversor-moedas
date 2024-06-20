@@ -9,7 +9,7 @@ function convertValues(){
    const dolarToday = 5.2
    const euroToday = 6.2
 
-   if(currencySelect.value == "dolar") {
+   if(currencySelect.value == "dolar"){
       //Se o select estiver selecionado o valor de dolar, entre aqui
       currencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
          style: "currency",
@@ -31,6 +31,22 @@ function convertValues(){
       }).format(inputCurrencyValue)
    }
 
+   function changeCurrency() {
+      const currencyName = document.getElementById("currency-name") 
+      const currencyImage = document.querySelector(".currency-img")
+
+      if (currencySelect.value == "dolar") {
+         currencyName.innerHTML = "Dólar Americano"
+         currencyImage.src = "./assets/dolar.png"
+      }
+
+      if (currencySelect.Value == "euro"){
+         currencyName.innerHTML = "Euro"
+         currencyImage.src = "./assets/euro.png"
+      }
+
+   }
 
 
-  convertButton.addEventListener("click", convertValues)
+   currencySelect.addEventListener("change", changeCurrency)
+   convertButton.addEventListener("click", convertValues)
